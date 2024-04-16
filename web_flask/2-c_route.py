@@ -3,7 +3,7 @@
 
 from flask import Flask
 
-app = Flask(__)
+app = Flask(__name__)
 
 
 @app.route('/')
@@ -12,10 +12,15 @@ def hello_hbnb():
 
 
 @app.route('/hbnb', strict_slashes=False)
+def hbnb():
+    return "HBNB"
+
+
+@app.route('/c/<text>', strict_slashes=False)
 def custom_text(text):
-    # Repalce underscores with spaces
+    # Replace underscores with spaces
     formatted_text = text.replace('_', ' ')
-    return f"c {formatted_text}"
+    return f"C {formatted_text}"
 
 
 if __name__ == '__main__':
